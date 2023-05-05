@@ -4,6 +4,9 @@ import { useDispatch,useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { getVacancy,editVacancy } from '../../actions/jobs'
 import { useAlert } from 'react-alert'
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import './Vacancy.css'
 
 const EditVacancy = () => {
   const {id} = useParams()
@@ -42,27 +45,39 @@ const EditVacancy = () => {
     return (
     <div>
         <div className='header'>
-            <button onClick={()=>navigate('/')}>back</button>
+              <FontAwesomeIcon id='back' icon={faArrowLeft} onClick={()=>navigate('/')}/>
         </div>
-        <div>
+        <div className='container'>
             <form onSubmit={handleSubmit}>
                 <h2>Edit Job</h2>
 
-                <label htmlFor="title">Job Title</label>
-                <input id='title' type="text" defaultValue={vacancy.role} name='title' required/>
+                <div className='entry'>
+                  <label htmlFor="title">Job Title</label>
+                  <input id='title' type="text" defaultValue={vacancy.role} name='title' required/>
+                </div>
                 
-                <label htmlFor="company">Company Name</label>
-                <input id='company' type="text" name='company' defaultValue={vacancy.company} required/>
+                <div className='entry'>
+                  <label htmlFor="company">Company Name</label>
+                  <input id='company' type="text" name='company' defaultValue={vacancy.company} required/>
+                </div>
                 
-                <label htmlFor="salary">Salary</label>
-                <input id='salary' type="text" name='salary' defaultValue={vacancy.salary} required/>
-
-                <label htmlFor="date">Joining Date</label>
-                <input id='date' type="date" name='date' defaultValue={vacancy.joining} required/>
+                <div className='temp'>
+                  <div className='entry'>
+                    <label htmlFor="salary">Salary</label>
+                    <input id='salary' type="text" name='salary' defaultValue={vacancy.salary} required/>
+                  </div>
+                  
+                  <div className='entry'>
+                    <label htmlFor="date">Joining Date</label>
+                    <input id='date' type="date" name='date' defaultValue={vacancy.joining} required/>
+                  </div>
+                </div>
                 
-                <label htmlFor="desc">Description</label>
-                <input id='desc' type="text" name='desc' defaultValue={vacancy.desc} required/>
-
+                <div className='entry'>
+                  <label htmlFor="desc">Description</label>
+                  <textarea rows="5" cols="40" id='desc' type="text" name='desc' defaultValue={vacancy.desc} required/>
+                </div>
+                
                 <button type='submit'>Submit</button>
 
             </form>

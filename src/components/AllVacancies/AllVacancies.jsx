@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from 'react'
 import './AllVacancies.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
+import { faEllipsisV,faEdit,faTrashAlt,faBuilding } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useNavigate } from 'react-router-dom';
 import { removeVacancy } from '../../actions/jobs';
@@ -22,7 +22,8 @@ const AllVacancies = () => {
       }
     },[dispatch,message])
 
-  const handleOptionsClick = () => {
+  const handleOptionsClick = (e) => {
+    e.stopPropagation();
     setShowOptions(!showOptions);
   }
 
@@ -36,34 +37,54 @@ const AllVacancies = () => {
     dispatch(removeVacancy(id,vacancies))
   }
 
+  const handleCardClick = (event) => {
+    if (!event.target.classList.contains('options')) {
+      console.log('/some-route');
+    }
+  };
+
   if(loading || !vacancies)
     return <div>Loading</div>
   else
     return (
-    <div className='container'>
+    <div>
         <div className='navbar'>
             <button onClick={()=>navigate('/add-vacancy')}>Add Job</button>
         </div>
         <div className='jobs'>
             {
                 vacancies.map((ele,index)=>
-                    <div className="job" key={index}>
+                    <div className="job" key={index} onClick={handleCardClick}>
                         <div className="card-header">
                             <h2>{ele.role}</h2>
                             <div className="options" onClick={handleOptionsClick}>
                                 <FontAwesomeIcon icon={faEllipsisV} />
                                 {showOptions && (
-                                    <div className="options-menu">
-                                        <button onClick={()=>handleEditClick(ele.id)}>Edit</button>
-                                        <button onClick={()=>handleDeleteClick(ele.id)}>Delete</button>
-                                    </div>
+                                  <div className="options-menu">
+                                    <button className="option" onClick={()=>handleEditClick(ele.id)}>
+                                      <FontAwesomeIcon icon={faEdit} />
+                                      <span>Edit</span>
+                                    </button>
+                                    <button className="option" onClick={()=>handleDeleteClick(ele.id)}>
+                                      <FontAwesomeIcon icon={faTrashAlt} />
+                                      <span>Delete</span>
+                                    </button>
+                                </div>
                                 )}
                             </div>
                         </div>
                         <div className="card-body">
-                            <h4>{ele.company}</h4>
-                            <h4>{ele.salary}</h4>
-                            <h4>{ele.joining}</h4>
+                          <div className='company'>
+                            <div id='icon'>
+                              <FontAwesomeIcon icon={faBuilding} />
+                            </div>
+                            <span>{ele.company}</span>
+                          </div>
+                          
+                            <div className='details'>
+                              <span>Salary: {ele.salary}</span>
+                              <span>Joining Date:{ele.joining}</span>
+                            </div>
                             <p>{ele.desc}</p>
                         </div>
                   </div>

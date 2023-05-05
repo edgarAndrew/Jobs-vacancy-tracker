@@ -3,6 +3,9 @@ import { addVacancy } from '../../actions/jobs'
 import { useDispatch,useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { useAlert } from 'react-alert'
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import './Vacancy.css'
 
 const AddVacancy = () => {
 
@@ -34,27 +37,39 @@ const AddVacancy = () => {
   return (
     <div>
         <div className='header'>
-            <button onClick={()=>navigate('/')}>back</button>
+              <FontAwesomeIcon id='back' icon={faArrowLeft} onClick={()=>navigate('/')}/>
         </div>
-        <div>
-            <form onSubmit={handleSubmit}>
+        <div className='container'>
+        <form onSubmit={handleSubmit}>
                 <h2>Add Job</h2>
 
-                <label htmlFor="title">Job Title</label>
-                <input id='title' type="text" name='title' required/>
+                <div className='entry'>
+                  <label htmlFor="title">Job Title</label>
+                  <input id='title' type="text" name='title' required/>
+                </div>
                 
-                <label htmlFor="company">Company Name</label>
-                <input id='company' type="text" name='company' required/>
+                <div className='entry'>
+                  <label htmlFor="company">Company Name</label>
+                  <input id='company' type="text" name='company' required/>
+                </div>
                 
-                <label htmlFor="salary">Salary</label>
-                <input id='salary' type="text" name='salary' required/>
-
-                <label htmlFor="date">Joining Date</label>
-                <input id='date' type="date" name='date' required/>
+                <div className='temp'>
+                  <div className='entry'>
+                    <label htmlFor="salary">Salary</label>
+                    <input id='salary' type="text" name='salary' required/>
+                  </div>
+                  
+                  <div className='entry'>
+                    <label htmlFor="date">Joining Date</label>
+                    <input id='date' type="date" name='date' required/>
+                  </div>
+                </div>
                 
-                <label htmlFor="desc">Description</label>
-                <input id='desc' type="text" name='desc' required/>
-
+                <div className='entry'>
+                  <label htmlFor="desc">Description</label>
+                  <textarea rows="5" cols="40" id='desc' type="text" name='desc' required/>
+                </div>
+                
                 <button type='submit'>Submit</button>
 
             </form>

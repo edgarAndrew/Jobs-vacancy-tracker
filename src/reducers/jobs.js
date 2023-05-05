@@ -12,7 +12,7 @@ const initialState = {
         },
         {
             'id':2,
-            'role':'Frontend Developer',
+            'role':'Backend Developer',
             'company':'Company 2',
             'salary':'20k - 30k /m',
             'joining':'01/10/22',
@@ -20,7 +20,7 @@ const initialState = {
         },
         {
             'id':3,
-            'role':'Frontend Developer',
+            'role':'Tester',
             'company':'Company 3',
             'salary':'20k - 30k /m',
             'joining':'01/10/22',
@@ -28,7 +28,7 @@ const initialState = {
         },
         {
             'id':4,
-            'role':'Frontend Developer',
+            'role':'UI/UX Designer',
             'company':'Company 4',
             'salary':'20k - 30k /m',
             'joining':'01/10/22',
@@ -36,7 +36,7 @@ const initialState = {
         },
         {
             'id':5,
-            'role':'Frontend Developer',
+            'role':'DevOps',
             'company':'Company 5',
             'salary':'20k - 30k /m',
             'joining':'01/10/22',
@@ -44,7 +44,7 @@ const initialState = {
         },
         {
             'id':6,
-            'role':'Frontend Developer',
+            'role':'ML Engineer',
             'company':'Company 6',
             'salary':'20k - 30k /m',
             'joining':'01/10/22',
