@@ -1,6 +1,6 @@
 # spark-plus-test
 
-To run locally
+### To run locally
 
-npm install --legacy-peer-deps
-npm run dev
+#### npm install --legacy-peer-deps
+#### npm run dev
