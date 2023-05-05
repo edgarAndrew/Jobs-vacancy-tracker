@@ -100,4 +100,7 @@ export const jobsReducer = createReducer(initialState,{
     clearMessage: (state,action)=>{
         state.message = null;
     },
+    clearVacancy: (state,action)=>{
+        state.vacancy = null;
+    },
 })

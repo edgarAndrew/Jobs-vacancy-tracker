@@ -23,7 +23,7 @@ const EditVacancy = () => {
   },[dispatch,message])
   
   useEffect(()=>{
-    while(loading);
+    dispatch({ type: "clearVacancy" })
     dispatch(getVacancy(id,vacancies))
   },[])
 
@@ -39,13 +39,13 @@ const EditVacancy = () => {
     dispatch(editVacancy(id,title,company,salary,date,desc,vacancies))
   }
   
-  if(!vacancy)
+  if(loading || !vacancy)
     return <div>Loading</div>
   else
     return (
     <div>
         <div className='header'>
-              <FontAwesomeIcon id='back' icon={faArrowLeft} onClick={()=>navigate('/')}/>
+              <FontAwesomeIcon id='back' icon={faArrowLeft} onClick={()=>{navigate('/');dispatch({ type: "clearVacancy" })}}/>
         </div>
         <div className='container'>
             <form onSubmit={handleSubmit}>
