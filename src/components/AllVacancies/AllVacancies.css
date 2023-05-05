@@ -83,10 +83,20 @@
     width: 1.5rem;
     border-radius: 50%;
     text-align: center;
+    padding: 0.2rem 0.2rem;
 }
-/* @media screen and (max-width: 400px) {
+#dots{
+    width: 1.5rem;
+    height: 1.5rem;
+    text-align: center;
+    border-radius: 50%;
+}
+#dots:hover{
+    background-color: lightslategray;
+}
+@media all and (max-width: 600px) {
     .job{
-       flex-basis: 50%;
-       background-color: red;
+        margin: 0 2rem;
+        flex-grow: 1;
      }
-  } */
+  }

@@ -37,9 +37,9 @@ const AllVacancies = () => {
     dispatch(removeVacancy(id,vacancies))
   }
 
-  const handleCardClick = (event) => {
+  const handleCardClick = (event,id) => {
     if (!event.target.classList.contains('options')) {
-      console.log('/some-route');
+      navigate(`/vacancy/${id}`)
     }
   };
 
@@ -54,11 +54,13 @@ const AllVacancies = () => {
         <div className='jobs'>
             {
                 vacancies.map((ele,index)=>
-                    <div className="job" key={index} onClick={handleCardClick}>
+                    <div className="job" key={index} onClick={(e)=>handleCardClick(e,ele.id)}>
                         <div className="card-header">
                             <h2>{ele.role}</h2>
                             <div className="options" onClick={handleOptionsClick}>
-                                <FontAwesomeIcon icon={faEllipsisV} />
+                                <div id='dots'>
+                                  <FontAwesomeIcon icon={faEllipsisV} />
+                                </div>
                                 {showOptions && (
                                   <div className="options-menu">
                                     <button className="option" onClick={()=>handleEditClick(ele.id)}>

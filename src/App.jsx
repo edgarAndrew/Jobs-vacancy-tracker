@@ -4,12 +4,14 @@ import AllVacancies from './components/AllVacancies/AllVacancies';
 import AddVacancy from './components/Vacancy/AddVacancy';
 import EditVacancy from './components/Vacancy/EditVacancy';
 import NotFound from './components/NotFound/NotFound'
+import Vacancy from './components/Vacancy/Vacancy';
 
 const App = () => {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<AllVacancies/>}/>
+        <Route path="/vacancy/:id" element={<Vacancy/>}/>
         <Route path="/add-vacancy" element={<AddVacancy/>}/>
         <Route path="/edit-vacancy/:id" element={<EditVacancy/>}/>
         <Route path='*' element={<NotFound/>}/>
