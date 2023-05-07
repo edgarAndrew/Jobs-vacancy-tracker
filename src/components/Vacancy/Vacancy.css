@@ -5,7 +5,8 @@
 }
 #back:hover{
     cursor: pointer;
-    background-color: lightslategray;
+    border: 0.5px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 }
 .header{
     width: 100vw;
@@ -20,7 +21,7 @@
 .container > form{
     display: flex;
     flex-direction: column;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: -1px 1px 5px 9px rgba(0, 0, 0, 0.2);
     width: 55vw;
     padding: 2rem 3rem;
     row-gap: 2rem;
